@@ -1,6 +1,6 @@
 # Gradox · Frontend
 
-Interfaz web de **Gradox 2.0**, la biblioteca colaborativa multi-grado. Está construida con React, Vite y Tailwind CSS, y consume la API Spring Boot del repositorio.
+Interfaz web de **Gradox 2.0**, la biblioteca colaborativa multi-grado. Está construida con React, Vite y Tailwind CSS, y consume la [API Spring Boot](https://github.com/Gradox2/gradox2-api).
 
 El catálogo cubre Ingeniería Informática, Ingeniería Química e Inteligencia Artificial. El grado es permanente para cada usuario y define dónde puede escribir; la lectura y la descarga son libres entre grados.
 
@@ -11,16 +11,16 @@ La interfaz usa una escala de grises, capas de cristal, luz ambiental muy sutil 
 Requisitos:
 
 - Node.js 20.19+ (recomendado 22)
-- La API de Gradox disponible en `http://localhost:8080`
+- La API de Gradox disponible en `http://localhost:8080` (desarrollo local)
 
 ```bash
-cd frontend
-npm install
-cp .env.example .env
+npm ci
 npm run dev
 ```
 
 La app queda en `http://localhost:5173`.
+
+Para desarrollo integrado, clona también el [repositorio de la API](https://github.com/Gradox2/gradox2-api) junto a este y arránzalo por separado con `./run.sh dev`. Desde este repositorio puedes arrancar la web con `npm run dev`; el valor predeterminado de desarrollo apunta a la API local en el puerto `8080`.
 
 ### Variables de entorno
 
@@ -29,7 +29,7 @@ La app queda en `http://localhost:5173`.
 | `VITE_API_URL` | URL base de la API. Vacío = mismo host que la web. | vacío |
 | `VITE_API_PORT` | Puerto de la API cuando `VITE_API_URL` está vacío. | `8080` |
 
-El backend ya expone CORS para el entorno local. Con `VITE_API_URL` vacío, la web calcula la API a partir del host con el que se abre, así que también funciona desde otra máquina de la LAN (`http://192.168.x.x:5173`). Para una API remota o un túnel, define `VITE_API_URL`.
+El archivo `.env.development` deja `VITE_API_URL` vacío y usa el puerto `8080`, por lo que el frontend local se conecta al backend local. Para apuntar el servidor de desarrollo a una API remota, crea `.env.development.local` (ignorado por Git) y define `VITE_API_URL`.
 
 ### Scripts
 
@@ -99,7 +99,7 @@ Decisiones técnicas:
 
 ### Despliegue
 
-El servidor estático debe aplicar *fallback* a `index.html` para cualquier ruta, porque React Router gestiona la navegación en cliente. Configura `VITE_API_URL` con la URL pública de la API antes de ejecutar `npm run build`.
+Este repositorio se publica en [https://gradox2.github.io/](https://gradox2.github.io/) con GitHub Actions. El workflow construye el frontend con `VITE_API_URL=https://gradox2.onrender.com`, fija la base en `/` y publica `404.html` como fallback para las rutas de React Router. La API se despliega por separado desde [gradox2-api](https://github.com/Gradox2/gradox2-api) en Render.
 
 ## Diseño
 
