@@ -56,7 +56,7 @@ export function Footer() {
             </p>
             <div className="mt-4 flex items-center gap-3">
               <a
-                href="https://github.com/AsierCL/Gradox2"
+                href="https://github.com/Gradox2/gradox2.github.io"
                 target="_blank"
                 rel="noreferrer"
                 className="text-ink-soft transition-colors hover:text-ink"
@@ -65,7 +65,7 @@ export function Footer() {
                 <GithubLogo size={19} aria-hidden="true" />
               </a>
               <a
-                href="https://github.com/AsierCL/Gradox2/issues"
+                href="https://github.com/Gradox2/gradox2.github.io/issues"
                 target="_blank"
                 rel="noreferrer"
                 className="text-ink-soft transition-colors hover:text-ink"
@@ -74,7 +74,7 @@ export function Footer() {
                 <ChatCircleDots size={19} aria-hidden="true" />
               </a>
               <a
-                href="https://github.com/AsierCL/Gradox2"
+                href="https://github.com/Gradox2/gradox2.github.io"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1 text-xs font-semibold text-ink"

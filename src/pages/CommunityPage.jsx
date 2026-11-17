@@ -308,7 +308,7 @@ export function CommunityPage() {
             <div>
               <h2 className="display-tight mt-3 text-[clamp(1.9rem,3.2vw,2.7rem)] text-ink">Dudas</h2>
               <Button
-                href="https://github.com/AsierCL/Gradox2"
+                href="https://github.com/Gradox2/gradox2-api/tree/main/Documentation"
                 variant="ghost"
                 className="mt-6"
               >
